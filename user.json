@@ -1,0 +1,48 @@
+[
+    {
+      "admin": true,
+      "name": "Admin",
+      "lastname": "User",
+      "email": "admin@example.com",
+      "phone": "123-456-7890",
+      "country": "USA",
+      "password": "admin_password"
+    },
+    {
+      "admin": false,
+      "name": "John",
+      "lastname": "Doe",
+      "email": "john.doe@example.com",
+      "phone": "987-654-3210",
+      "country": "Canada",
+      "password": "john_password"
+    },
+    {
+      "admin": false,
+      "name": "Jane",
+      "lastname": "Doe",
+      "email": "jane.doe@example.com",
+      "phone": "555-555-5555",
+      "country": "Australia",
+      "password": "jane_password"
+    },
+    {
+      "admin": false,
+      "name": "Bob",
+      "lastname": "Smith",
+      "email": "bob.smith@example.com",
+      "phone": "111-222-3333",
+      "country": "UK",
+      "password": "bob_password"
+    },
+    {
+      "admin": false,
+      "name": "Alice",
+      "lastname": "Johnson",
+      "email": "alice.johnson@example.com",
+      "phone": "444-444-4444",
+      "country": "New Zealand",
+      "password": "alice_password"
+    }
+  ]
+  

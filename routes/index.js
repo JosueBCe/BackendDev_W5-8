@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', require("./displayName"));
 
 router.use('/products', require("./products"));
-// router.use('/user', require('./user'));
+router.use('/users', require('./users'));
 // router.use('/theme', require('./theme'));
 
 module.exports = router;
