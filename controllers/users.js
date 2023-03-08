@@ -16,22 +16,22 @@ const getAll = async (req, res) => {
 
 };
 
-const getCategory = async (req, res) => {
-  try {
-    const UserCategory = req.params.category
-    const result = await mongodb
-      .getDb()
-      .db("ecommerce")
-      .collection("users")
-      .find({ category: UserCategory });
-    result.toArray().then((lists) => {
-      res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(lists);
-    });
-  } catch (error) {
-    res.status(500).json({ message: error.message })
-  }
-};
+// const getByCategory = async (req, res) => {
+//   try {
+//     const UserCategory = req.params.admin
+//     const result = await mongodb
+//       .getDb()
+//       .db("ecommerce")
+//       .collection("users")
+//       .find({ admin : UserCategory == true });
+//     result.toArray().then((lists) => {
+//       res.setHeader('Content-Type', 'application/json');
+//       res.status(200).json(lists);
+//     });
+//   } catch (error) {
+//     res.status(500).json({ message: error.message })
+//   }
+// };
 
 const getById = async (req, res) => {
   try {
@@ -128,4 +128,4 @@ const deleteUser = async (req, res) => {
     res.status(500).json({ message: error.message })
   }
 };
-module.exports = { getAll, getCategory, getById, addNewUser, updateUser, deleteUser }
+module.exports = { getAll, getById, addNewUser, updateUser, deleteUser } //getByCategory

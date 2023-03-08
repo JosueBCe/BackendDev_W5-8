@@ -6,7 +6,7 @@ const usersController = require('../controllers/users');
 
 // Requires specific function from index file 
 router.get('/', usersController.getAll);
-router.get('/:category', usersController.getCategory );
+// router.get('/:category', usersController.getByCategory );
 router.get('/byId/:id', usersController.getById );
 
 // Creating new User

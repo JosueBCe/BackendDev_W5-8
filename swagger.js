@@ -5,7 +5,7 @@ const doc = {
     title: 'My API Doc',
     description: 'Backend II',
   },
-  host: 'backend-dev-1joz.onrender.com',
+  host: 'josue-backend-ecommerce.onrender.com',
   schemes: ['https'],
 };
 

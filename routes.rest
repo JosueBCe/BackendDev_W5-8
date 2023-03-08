@@ -186,9 +186,7 @@ DELETE http://localhost:8080/users/byId/640764b2b09b4c8ce2bdd79b HTTP/1.1
 
 
 
-
-// ////////////////////  RENDER 
-
+// ////////////////////  ON RENDER 
 ###
 GET https://josue-backend-ecommerce.onrender.com
 
@@ -203,8 +201,6 @@ GET https://josue-backend-ecommerce.onrender.com/users/byId/63f4e8a60760c6be2eaf
 
 
 
-
-// ////////////////////  ON RENDER 
 ###
 GET https://josue-backend-ecommerce.onrender.com/users/
 
