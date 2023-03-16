@@ -10,7 +10,7 @@ const methodOverride = require('method-override')
 const port = process.env.PORT || 8080;
 const app = express();
 
-require('./config/passport-setup')(passport)
+
 
 // set view engine
 app.set('view engine', 'ejs');
@@ -44,3 +44,5 @@ mongodb.initDb((err) => {
     console.log(`Connected to DB and listening on ${port}: http://localhost:${port}/`);
   }
 });
+
+
