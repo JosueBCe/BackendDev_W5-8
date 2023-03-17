@@ -5,7 +5,7 @@ const passport = require('passport');
 const passportSetup = require('./config/passport-setup');
 const cookieSession = require('cookie-session');
 const methodOverride = require('method-override')
-
+const connectDb = require('./config/db');
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -26,6 +26,8 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// connect to mongodb
+connectDb()
 
 app
   .use(bodyParser.json())

@@ -9,41 +9,41 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((id, done) => {
   User.findById(id).then((user) => {
-      done(null, user);
+    done(null, user);
   });
 });
 
 
 passport.use(
-    new GoogleStrategy({
-        // options for google strategy
-        clientID: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: '/auth/google/redirect'
-    },(accessToken, refreshToken, profile, done) => {
+  new GoogleStrategy({
+    // options for google strategy
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: '/auth/google/redirect'
+  }, async (accessToken, refreshToken, profile, done) => {
+    try {
       // check if user already exists in our own db
-              console.log(profile)
-
-      // User.find({_id: profile.id}).then((currentUser) => {
-          // if(currentUser){
-          //     // already have this user
-          //     console.log('user is: ', currentUser);
-          //     done(null, currentUser);
-          // } else {
-          //     // if not, create user in our db
-          //     new User({
-          //         phone: profile.id,
-          //         name: profile.displayName,
-          //         country: profile._json.image.url
-          //     }).save().then((newUser) => {
-          //         console.log('created new user: ', newUser);
-          //         done(null, newUser);
-          //     });
-          // }
-      // });
+      const currentUser = await User.findOne({ googleId: profile.id });
+      if (currentUser) {
+        // already have this user
+        console.log('user is: ', currentUser);
+        done(null, currentUser);
+      } else {
+        // if not, create user in our db
+        const newUser = await new User({
+          username: profile.id,
+          googleId: profile.displayName,
+          thumbnail: profile._json.image.url
+        }).save();
+        console.log('created new user: ', newUser);
+        done(null, newUser);
+      }
+    } catch (err) {
+      console.error(err);
+      done(err, null);
+    }
   })
 );
-
 /* 
 https://github.com/bradtraversy/storybooks/blob/master/config/passport.js
 https://www.youtube.com/watch?v=BZwzWgLA0JA&list=PL4cUxeGkcC9jdm7QX143aMLAqyM-jTZ2x&index=13
