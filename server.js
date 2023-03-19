@@ -4,13 +4,18 @@ const mongodb = require('./models/connectdb');
 const passport = require('passport');
 const passportSetup = require('./config/passport-setup');
 const cookieSession = require('cookie-session');
-const methodOverride = require('method-override')
-const connectDb = require('./config/db');
+
+const mongoose = require('mongoose');
 const port = process.env.PORT || 8080;
 const app = express();
 
 
 
+
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
 // set view engine
 app.set('view engine', 'ejs');
 
@@ -27,7 +32,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // connect to mongodb
-connectDb()
+// connectDb()
 
 app
   .use(bodyParser.json())
