@@ -352,6 +352,41 @@
           }
         }
       }
+    },
+    "/auth/login": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/logout": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/google": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/google/redirect": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/profile/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
     }
   }
 }

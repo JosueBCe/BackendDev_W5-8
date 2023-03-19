@@ -26,12 +26,12 @@ passport.use(
     try {
       console.log(profile);
 
-      const userCount = await User.countDocuments({ googleId: profile.id });
-if (userCount > 0) {
-  console.log('User already exists in the database');
-  done(null, profile);
-  return;
-}
+//       const userCount = await User.countDocuments({ googleId: profile.id });
+// if (userCount > 0) {
+//   console.log('User already exists in the database');
+//   done(null, profile);
+//   return;
+// }
 
       // Creating a new user object from the Google profile
       const user = {
